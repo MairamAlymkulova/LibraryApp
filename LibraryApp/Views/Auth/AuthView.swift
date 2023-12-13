@@ -62,12 +62,15 @@ struct AuthView: View {
                     }
                     
                 }
+               
+
                 
             }
-            .navigationBarHidden(true)
             
 
         }
+        .navigationBarBackButtonHidden()
+        .navigationBarHidden(true)
         
     }
 }

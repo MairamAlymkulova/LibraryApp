@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBook: View {
 //    @State var show: Bool = true
+    @Binding var page: PageOptions
     @Binding var show: Bool
     @State private var libraryList: Bool = false
     @State private var bookName: String = ""
@@ -29,8 +30,8 @@ struct SearchBook: View {
             })
             Spacer()
                 Button(action: {
-                    withAnimation(.snappy) {
-                        show.toggle()
+                    withAnimation(.default) {
+                        page = .list
                     }
                 }, label: {
                     Image(systemName: "magnifyingglass")

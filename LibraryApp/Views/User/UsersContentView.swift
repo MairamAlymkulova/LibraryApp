@@ -8,37 +8,60 @@
 import SwiftUI
 
 struct UsersContentView: View {
+    @State private var pageType: PageOptions = .search
+    @State private var logout: Bool = false
     var body: some View {
         NavigationView{
             VStack{
-                SearchBookView()
+                if pageType == .search{
+                    SearchBookView(page: $pageType)
+                }
+                else if pageType == .list{
+                    BooksListUser()
+                }
+                else{
+                    UserProfileView(logout: $logout)
+                }
                 HStack{
                     Spacer()
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: {
+                        pageType = .list
+                    }, label: {
                         Image(systemName: "list.bullet.circle")
                             .imageScale(.large)
-                            .shadow(color:.gray,radius: 2)
+                            .shadow(color: pageType == .list ? .purple : .gray,radius: 2)
                     })
                     
                     Spacer()
-                    Button(action: {}, label: {
+                    Button(action: {
+                        pageType = .search
+                    }, label: {
                         Image(systemName: "magnifyingglass.circle")
                             .imageScale(.large)
-                            .shadow(color:.gray,radius: 2)
+                            .shadow(color: pageType == .search ? .purple : .gray,radius: 2)
                     })
                     
                     Spacer()
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: {
+                        pageType = .user
+                    }, label: {
                         Image(systemName: "person")
                             .imageScale(.large)
-                            .shadow(color:.gray,radius: 2)
+                            .shadow(color: pageType == .user ? .purple : .gray,radius: 2)
                     })
                     Spacer()
                 }
+                NavigationLink(
+                    destination: AuthView(),
+                    isActive: $logout,
+                    label: {})
+                .hidden()
             }
-            .foregroundColor(.black)
             
         }
+        .foregroundColor(.black)
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
     }
     
 }

@@ -47,8 +47,15 @@ struct SignUpView: View {
                         password: password
                     ) { authResult, error in
                         if let authResult{
-                            print("User created succesfuly")
-                            showSignUP = false
+                            let mUser = Usser(id: authResult.user.uid,
+                                              name: "",
+                                              thirname: "",
+                                              password: "")
+                            DatabaseService.shared.setUser(user: mUser) { result in
+                                print("User created succesfuly")
+                                showSignUP = false
+                            }
+                            
                         }else{
                             print("Error user create \(error)")
                         }

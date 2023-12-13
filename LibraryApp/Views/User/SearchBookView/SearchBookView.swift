@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SearchBookView: View {
     @State private var showSearchView: Bool = false
-
+    @Binding var page: PageOptions
     var body: some View {
         if showSearchView{
             Spacer()
-            SearchBook(show: $showSearchView)
+            SearchBook(page: $page, show: $showSearchView)
             Spacer()
 
         }
@@ -69,7 +69,7 @@ struct SearchBookView: View {
         }
     }
 }
-
-#Preview {
-    SearchBookView()
-}
+//
+//#Preview {
+//    SearchBookView()
+//}

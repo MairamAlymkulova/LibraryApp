@@ -10,14 +10,17 @@ import SwiftUI
 struct AdminContentView: View {
     @State private var pageType: PageOptions = .search
     @State private var logout: Bool = false
+    @State var bookName: String? = nil
+    @State var writer: String? = nil
+    @State var library: String? = nil
     var body: some View {
         NavigationView{
             VStack{
                 if pageType == .search{
-                    SearchBookView(page: $pageType)
+                    SearchBookViewAdmin(bookName: $bookName, writer: $writer, library: $library, page: $pageType)
                 }
                 else if pageType == .list{
-                    BooksListUser()
+                    BooksListAdmin(bookName: $bookName, writer: $writer, library: $library)
                 }
                 else{
                     UserProfileView(logout: $logout)

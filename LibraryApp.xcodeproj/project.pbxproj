@@ -38,6 +38,11 @@
 		BCF2ACCF2B2A074700C90091 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACCE2B2A074700C90091 /* ProfileViewModel.swift */; };
 		BCF2ACD12B2A1DD100C90091 /* BookListAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACD02B2A1DD100C90091 /* BookListAdmin.swift */; };
 		BCF2ACD32B2A1E5700C90091 /* BookInfoAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACD22B2A1E5700C90091 /* BookInfoAdmin.swift */; };
+		BCF2ACD72B2A20E500C90091 /* SearchBookViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACD62B2A20E500C90091 /* SearchBookViewAdmin.swift */; };
+		BCF2ACD92B2A21AF00C90091 /* SearchBookAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACD82B2A21AF00C90091 /* SearchBookAdmin.swift */; };
+		BCF2ACDB2B2A2BB200C90091 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACDA2B2A2BB200C90091 /* Book.swift */; };
+		BCF2ACDD2B2A2E5E00C90091 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACDC2B2A2E5E00C90091 /* AddBookView.swift */; };
+		BCF2ACDF2B2A344A00C90091 /* ListOfBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACDE2B2A344A00C90091 /* ListOfBook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		BCF2ACCE2B2A074700C90091 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BCF2ACD02B2A1DD100C90091 /* BookListAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListAdmin.swift; sourceTree = "<group>"; };
 		BCF2ACD22B2A1E5700C90091 /* BookInfoAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoAdmin.swift; sourceTree = "<group>"; };
+		BCF2ACD62B2A20E500C90091 /* SearchBookViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewAdmin.swift; sourceTree = "<group>"; };
+		BCF2ACD82B2A21AF00C90091 /* SearchBookAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookAdmin.swift; sourceTree = "<group>"; };
+		BCF2ACDA2B2A2BB200C90091 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		BCF2ACDC2B2A2E5E00C90091 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		BCF2ACDE2B2A344A00C90091 /* ListOfBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +208,10 @@
 				BC837E9D2B28968D004E0A3D /* AdminContentView.swift */,
 				BCF2ACD02B2A1DD100C90091 /* BookListAdmin.swift */,
 				BCF2ACD22B2A1E5700C90091 /* BookInfoAdmin.swift */,
+				BCF2ACD62B2A20E500C90091 /* SearchBookViewAdmin.swift */,
+				BCF2ACD82B2A21AF00C90091 /* SearchBookAdmin.swift */,
+				BCF2ACDC2B2A2E5E00C90091 /* AddBookView.swift */,
+				BCF2ACDE2B2A344A00C90091 /* ListOfBook.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -216,6 +230,7 @@
 			children = (
 				BCF2ACC72B29F30700C90091 /* User.swift */,
 				BCF2ACCE2B2A074700C90091 /* ProfileViewModel.swift */,
+				BCF2ACDA2B2A2BB200C90091 /* Book.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF2ACDF2B2A344A00C90091 /* ListOfBook.swift in Sources */,
 				BCB05CCF2AFE2721007C2EBC /* SignInView.swift in Sources */,
 				BCF2ACC02B29E45100C90091 /* FirebaseService.swift in Sources */,
 				BCF2ACC32B29E49800C90091 /* EditProfileView.swift in Sources */,
@@ -320,18 +336,22 @@
 				BCF2ACCB2B29F46D00C90091 /* DatabaseService.swift in Sources */,
 				BC837E932B28634B004E0A3D /* UsersContentView.swift in Sources */,
 				BC837E892B28589D004E0A3D /* SignUpView.swift in Sources */,
+				BCF2ACDB2B2A2BB200C90091 /* Book.swift in Sources */,
 				BCF2ACD12B2A1DD100C90091 /* BookListAdmin.swift in Sources */,
 				BCF2ACBC2B29D8DE00C90091 /* BookInfo.swift in Sources */,
 				BCF2ACAC2B299FE100C90091 /* SearchBookView.swift in Sources */,
 				BC837E9E2B28968D004E0A3D /* AdminContentView.swift in Sources */,
 				BC837E962B286380004E0A3D /* TextField.swift in Sources */,
+				BCF2ACDD2B2A2E5E00C90091 /* AddBookView.swift in Sources */,
 				BCF2ACB82B29D10F00C90091 /* BooksListUser.swift in Sources */,
 				BCF2ACD32B2A1E5700C90091 /* BookInfoAdmin.swift in Sources */,
+				BCF2ACD72B2A20E500C90091 /* SearchBookViewAdmin.swift in Sources */,
 				BCF2ACAE2B29A54700C90091 /* SearchBook.swift in Sources */,
 				BCF2ACCF2B2A074700C90091 /* ProfileViewModel.swift in Sources */,
 				BCF2ACC82B29F30700C90091 /* User.swift in Sources */,
 				BCF2ACBA2B29D12600C90091 /* UserProfileView.swift in Sources */,
 				BC837E8C2B2858D3004E0A3D /* AuthView.swift in Sources */,
+				BCF2ACD92B2A21AF00C90091 /* SearchBookAdmin.swift in Sources */,
 				BCB05CCD2AFE2721007C2EBC /* LibraryAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,8 +15,65 @@ class DatabaseService{
     private var userRef: CollectionReference{
         return db.collection("users")
     }
+    private var booksRef: CollectionReference{
+        return db.collection("books")
+    }
     
     private init() {    }
+    
+    func getBook(bookName: String? = nil, writer: String? = nil, library: String? = nil, completion: @escaping (Result<[Book], Error>) ->()){
+        self.booksRef.getDocuments { qSnap, error in
+            if let qSnap = qSnap{
+                var books = [Book]()
+                for doc in qSnap.documents{
+                    guard let book = Book(doc: doc) else {return}
+                    if let bookName{
+                        if let library{
+                            if book.bookName == bookName, book.library == library{
+                                books.append(book)
+                            }
+                        }else {
+                            if book.bookName == bookName{
+                                books.append(book)
+                            }
+                        }
+                    }
+                    else if let writer{
+                        if let library{
+                            if book.author == writer, book.library == library{
+                                books.append(book)
+                            }
+                        }else {
+                            if book.author == writer{
+                                books.append(book)
+                            }
+                        }
+                    }
+                    else{
+                        books.append(book)
+                    }
+                    
+                }
+                completion(.success(books))
+            }
+            else if let error{
+                completion(.failure(error))
+
+            }
+        }
+    }
+    
+    func setBook(book: Book, completion: @escaping (Result<Book, Error>) ->()){
+        booksRef.document(book.id).setData(book.representation) {error in
+            if let error = error{
+                completion(.failure(error))
+                
+            }else{
+                completion(.success(book))
+            }
+        }
+    }
+    
     func setUser(user: Usser, completion: @escaping (Result<Usser, Error>) ->()) {
         
         userRef.document(user.id).setData(user.representation) {error in

@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SearchBook: View {
-//    @State var show: Bool = true
+    //    @State var show: Bool = true
     @Binding var page: PageOptions
     @Binding var show: Bool
+    @Binding var bookName: String?
+    @Binding var writer: String?
+    @Binding var library: String?
     @State private var libraryList: Bool = false
-    @State private var bookName: String = ""
-    @State private var writer: String = ""
     @State private var selecteddOption: BookSearchOptions = .bookName
-    @State private var library: String = "Not selected"
-    @State private var libraries = ["lib1", "lib2", "fvfvdv", "dfvdvdvd", "dfvdfv"]
+    @State private var libraries = ["Library №14", "Library №24", "City Library №10", "City Library №11", "City Library №12 named after I. Razzakov", "City Library №13 named after S. Orozbakov", "City Library №15 named after Togolok Moldo", "City Library №17", "City Library №18 named after J. Bokonbaev"]
     var body: some View {
         HStack{
             Button(action: {
@@ -29,27 +29,33 @@ struct SearchBook: View {
                     .foregroundColor(.black)
             })
             Spacer()
-                Button(action: {
-                    withAnimation(.default) {
-                        page = .list
-                    }
-                }, label: {
-                    Image(systemName: "magnifyingglass")
-                        .imageScale(.large)
-                        .foregroundColor(.black)
-                })
+            Button(action: {
+                withAnimation(.default) {
+                    page = .list
+                }
+            }, label: {
+                Image(systemName: "magnifyingglass")
+                    .imageScale(.large)
+                    .foregroundColor(.black)
+            })
             
         }
         .padding(.horizontal)
         VStack(alignment: .leading){
             
             if selecteddOption == .bookName{
-                Text("What to read?")
+                Text("What to edit?")
                 HStack(spacing: 40){
-                    TextField("book name", text: $bookName)
-                        .font(.subheadline)
-                    TextField("writer name", text: $writer)
-                        .font(.subheadline)
+                    TextField("book name", text: Binding(
+                        get: { bookName ?? "" },
+                        set: { bookName = $0.isEmpty ? nil : $0 }
+                    ))
+                    .font(.subheadline)
+                    TextField("writer name", text: Binding(
+                        get: { writer ?? "" },
+                        set: { writer = $0.isEmpty ? nil : $0 }
+                    ))
+                    .font(.subheadline)
                     
                     
                 }
@@ -90,14 +96,17 @@ struct SearchBook: View {
         ZStack(alignment: .bottom){
             VStack(alignment: .leading){
                 if selecteddOption == .library{
-                    Text("Where to read?")
+                    Text("Where is it?")
                     HStack{
                         Text("Choose library")
                         Spacer()
-                        Text(library)
-                            .onTapGesture {
-                                libraryList.toggle()
-                            }
+                        TextField("book name", text: Binding(
+                            get: { library ?? "Not selected" },
+                            set: { library = $0.isEmpty ? nil : $0 }
+                        ))
+                        .onTapGesture {
+                            libraryList.toggle()
+                        }
                         
                         
                     }

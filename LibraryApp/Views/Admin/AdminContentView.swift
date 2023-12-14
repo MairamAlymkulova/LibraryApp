@@ -29,6 +29,9 @@ struct AdminContentView: View {
                     Spacer()
                     Button(action: {
                         pageType = .list
+                        bookName = nil
+                        writer = nil
+                        library = nil
                     }, label: {
                         Image(systemName: "list.bullet.circle")
                             .imageScale(.large)

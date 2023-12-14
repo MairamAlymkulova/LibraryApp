@@ -14,7 +14,7 @@ struct Book{
     var author: String
     var aboutBook: String
     var library: String
-    
+    var img: String
     
     var representation: [String: Any]{
         var repres = [String: Any]()
@@ -31,6 +31,7 @@ struct Book{
         self.author = author
         self.aboutBook = aboutBook
         self.library = library
+        self.img = bookName
     }
     
     init?(doc: QueryDocumentSnapshot){
@@ -47,6 +48,6 @@ struct Book{
         self.author = author
         self.aboutBook = aboutBook
         self.library = library
-
+        self.img = bookName
     }
 }

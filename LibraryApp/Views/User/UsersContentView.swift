@@ -10,14 +10,22 @@ import SwiftUI
 struct UsersContentView: View {
     @State private var pageType: PageOptions = .search
     @State private var logout: Bool = false
+    @State var bookName: String? = nil
+    @State var writer: String? = nil
+    @State var library: String? = nil
+    @State private var shouldUpdateView: Bool = false // Added state to trigger view update
+
     var body: some View {
         NavigationView{
             VStack{
                 if pageType == .search{
-                    SearchBookView(page: $pageType)
+                    SearchBookView(bookName: $bookName, writer: $writer, library: $library, page: $pageType)
+                    
                 }
                 else if pageType == .list{
-                    BooksListUser()
+                    BooksListUser(bookName: $bookName, writer: $writer, library: $library)
+                        .id(shouldUpdateView ? "list_updated" : nil) // Use 'id' to force view update
+
                 }
                 else{
                     UserProfileView(logout: $logout)
@@ -26,6 +34,10 @@ struct UsersContentView: View {
                     Spacer()
                     Button(action: {
                         pageType = .list
+                        bookName = nil
+                        writer = nil
+                        library = nil
+                        shouldUpdateView.toggle()
                     }, label: {
                         Image(systemName: "list.bullet.circle")
                             .imageScale(.large)

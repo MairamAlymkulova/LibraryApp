@@ -16,7 +16,7 @@ struct SearchBookAdmin: View {
     @Binding var library: String?
     @State private var libraryList: Bool = false
     @State private var selecteddOption: BookSearchOptions = .bookName
-    @State private var libraries = ["lib1", "lib2", "fvfvdv", "dfvdvdvd", "dfvdfv"]
+    @State private var libraries = ["Library №14", "Library №24", "City Library №10", "City Library №11", "City Library №12 named after I. Razzakov", "City Library №13 named after S. Orozbakov", "City Library №15 named after Togolok Moldo", "City Library №17", "City Library №18 named after J. Bokonbaev"]
     var body: some View {
         HStack{
             Button(action: {

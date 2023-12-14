@@ -63,16 +63,43 @@ class DatabaseService{
         }
     }
     
-    func setBook(book: Book, completion: @escaping (Result<Book, Error>) ->()){
-        booksRef.document(book.id).setData(book.representation) {error in
-            if let error = error{
-                completion(.failure(error))
-                
-            }else{
-                completion(.success(book))
+    
+        
+    func setBook(book: Book, image: Data? = nil, completion: @escaping (Result<Book, Error>) ->()) {
+        guard let img = image else {
+            self.booksRef.document(book.id).setData(book.representation) { error in
+                if let error = error {
+                    // Error occurred while updating book data.
+                    completion(.failure(error))
+                } else {
+                    // Book data updated successfully.
+                    completion(.success(book))
+                }
+            }
+            return
+        }
+        StorageService.shared.upload(id: book.id, image: img) { result in
+            switch result {
+            case .success(let uploadedImageURL):
+                // Image upload was successful. You can use 'uploadedImageURL' if needed.
+                // Now, update the book data in Firestore.
+                self.booksRef.document(book.id).setData(book.representation) { error in
+                    if let error = error {
+                        // Error occurred while updating book data.
+                        completion(.failure(error))
+                    } else {
+                        // Book data updated successfully.
+                        completion(.success(book))
+                    }
+                }
+            case .failure(let uploadError):
+                // Image upload failed.
+                completion(.failure(uploadError))
             }
         }
+        
     }
+
     
     func setUser(user: Usser, completion: @escaping (Result<Usser, Error>) ->()) {
         

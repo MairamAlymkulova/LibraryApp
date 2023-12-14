@@ -43,6 +43,8 @@
 		BCF2ACDB2B2A2BB200C90091 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACDA2B2A2BB200C90091 /* Book.swift */; };
 		BCF2ACDD2B2A2E5E00C90091 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACDC2B2A2E5E00C90091 /* AddBookView.swift */; };
 		BCF2ACDF2B2A344A00C90091 /* ListOfBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACDE2B2A344A00C90091 /* ListOfBook.swift */; };
+		BCF2ACE12B2A602800C90091 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2ACE02B2A602800C90091 /* StorageService.swift */; };
+		BCF2ACE32B2A60F800C90091 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BCF2ACE22B2A60F800C90091 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,7 @@
 		BCF2ACDA2B2A2BB200C90091 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		BCF2ACDC2B2A2E5E00C90091 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		BCF2ACDE2B2A344A00C90091 /* ListOfBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBook.swift; sourceTree = "<group>"; };
+		BCF2ACE02B2A602800C90091 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 				BC837E7D2B284779004E0A3D /* FirebaseAnalytics in Frameworks */,
 				BC837E7F2B284779004E0A3D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				BC837E852B284779004E0A3D /* FirebaseAppCheck in Frameworks */,
+				BCF2ACE32B2A60F800C90091 /* FirebaseStorage in Frameworks */,
 				BC837E832B284779004E0A3D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				BCF2ACCD2B29F4F200C90091 /* FirebaseFirestore in Frameworks */,
 			);
@@ -240,6 +244,7 @@
 			children = (
 				BCF2ACBF2B29E45100C90091 /* FirebaseService.swift */,
 				BCF2ACCA2B29F46D00C90091 /* DatabaseService.swift */,
+				BCF2ACE02B2A602800C90091 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				BC837E842B284779004E0A3D /* FirebaseAppCheck */,
 				BC837E8E2B28628A004E0A3D /* FirebaseAuth */,
 				BCF2ACCC2B29F4F200C90091 /* FirebaseFirestore */,
+				BCF2ACE22B2A60F800C90091 /* FirebaseStorage */,
 			);
 			productName = LibraryApp;
 			productReference = BCB05CC92AFE2721007C2EBC /* LibraryApp.app */;
@@ -334,6 +340,7 @@
 				BCF2ACC52B29E87900C90091 /* ImagePicker.swift in Sources */,
 				BCF2ACB12B29AFB000C90091 /* BookSerchOptions.swift in Sources */,
 				BCF2ACCB2B29F46D00C90091 /* DatabaseService.swift in Sources */,
+				BCF2ACE12B2A602800C90091 /* StorageService.swift in Sources */,
 				BC837E932B28634B004E0A3D /* UsersContentView.swift in Sources */,
 				BC837E892B28589D004E0A3D /* SignUpView.swift in Sources */,
 				BCF2ACDB2B2A2BB200C90091 /* Book.swift in Sources */,
@@ -605,6 +612,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC837E7B2B284779004E0A3D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		BCF2ACE22B2A60F800C90091 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC837E7B2B284779004E0A3D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

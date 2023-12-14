@@ -10,6 +10,7 @@ import SwiftUI
 struct BooksListAdmin: View {
     @State var showBookInfo: Bool = false
     @State var addBook: Bool = false
+    @State var image = UIImage()
     @Binding var bookName: String?
     @Binding var writer: String?
     @Binding var library: String?
@@ -45,8 +46,8 @@ struct BooksListAdmin: View {
                         Text("No books found")
                     }else{
                         ForEach(books, id: \.id){book in
-                            ListOfBook(img: "background", bookName: book.bookName, writerName: book.author)
-                                
+                            ListOfBook(img: book.img, bookName: book.bookName, writerName: book.author)
+                            
                                 .onTapGesture {
                                     currentBook = book
                                     withAnimation (.snappy) {
@@ -54,6 +55,7 @@ struct BooksListAdmin: View {
                                         
                                     }
                                 }
+
                         }
                         
                     }
@@ -67,7 +69,7 @@ struct BooksListAdmin: View {
             
             .onAppear(){
                 
-                 DatabaseService.shared.getBook(bookName: bookName, writer: writer, library: library, completion: { result in
+                DatabaseService.shared.getBook(bookName: bookName, writer: writer, library: library, completion: { result in
                     switch result{
                     case .success(let books):
                         self.books = books
@@ -75,8 +77,9 @@ struct BooksListAdmin: View {
                         print("succes")
                     case .failure(_):
                         print("failure")
-
+                        
                     }
+                    
                 })
             }
 

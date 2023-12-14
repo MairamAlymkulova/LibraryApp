@@ -42,7 +42,7 @@ struct BookInfoAdmin: View {
             
             
             VStack {
-                Image("background")
+                Image(book!.img)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 200, height: 250)

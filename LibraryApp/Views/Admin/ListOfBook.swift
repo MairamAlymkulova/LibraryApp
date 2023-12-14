@@ -27,9 +27,8 @@ struct ListOfBook: View {
                     .font(.system(size: 20))
                 
             }
-            Spacer()
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 5)
     }
 }
 

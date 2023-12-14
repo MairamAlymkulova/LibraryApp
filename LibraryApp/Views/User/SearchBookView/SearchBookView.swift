@@ -9,18 +9,25 @@ import SwiftUI
 
 struct SearchBookView: View {
     @State private var showSearchView: Bool = false
+    @Binding var bookName: String?
+    @Binding var writer: String?
+    @Binding var library: String?
     @Binding var page: PageOptions
     var body: some View {
         if showSearchView{
             Spacer()
-            SearchBook(page: $page, show: $showSearchView)
+            SearchBook(page: $page,
+                            show: $showSearchView,
+                            bookName: $bookName,
+                            writer: $writer,
+                            library: $library)
             Spacer()
 
         }
         else{
             VStack{
                 
-                Text("Find your \n book")
+                Text("Find your \n to book")
                     .font(.system(size: 46))
                     .padding()
                 
@@ -29,7 +36,7 @@ struct SearchBookView: View {
                         .imageScale(.large)
                     
                     VStack(alignment: .leading, spacing: 2){
-                        Text("What to read ?")
+                        Text("Wich one ?")
                             .font(.system(size: 20, weight: .semibold))
                         Text("Any thing-Any when")
                             .font(.system(size: 20))

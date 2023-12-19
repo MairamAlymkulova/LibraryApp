@@ -30,7 +30,20 @@ struct BookInfoAdmin: View {
                 Spacer()
                 Button(action: {
                     withAnimation(.snappy) {
-                        // Do something when the trash button is tapped
+                        DatabaseService.shared.deleteUser(book: book!) {result in
+                            show.toggle()
+                            defer {
+                                isSaving = false
+                            }
+                            switch result {
+                            case .success(let books):
+                                // Update any relevant state or perform actions after successful save
+                                print("Success")
+                            case .failure(let error):
+                                // Handle the error
+                                print("Error: \(error)")
+                            }
+                        }
                     }
                 }, label: {
                     Image(systemName: "trash")

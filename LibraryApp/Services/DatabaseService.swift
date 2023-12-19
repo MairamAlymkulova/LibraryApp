@@ -63,7 +63,17 @@ class DatabaseService{
         }
     }
     
-    
+    func deleteUser(book: Book, completion: @escaping (Result<String, Error>) ->()) {
+        booksRef.document(book.id).delete{  error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            else {
+                completion(.success("User data deleted successfully"))
+            }
+            
+        }
+    }
         
     func setBook(book: Book, image: Data? = nil, completion: @escaping (Result<Book, Error>) ->()) {
         guard let img = image else {

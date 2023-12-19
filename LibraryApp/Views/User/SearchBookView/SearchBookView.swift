@@ -27,7 +27,7 @@ struct SearchBookView: View {
         else{
             VStack{
                 
-                Text("Find your \n to book")
+                Text("Find your \n book")
                     .font(.system(size: 46))
                     .padding()
                 

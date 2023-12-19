@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AdminContentView: View {
+    @State private var shouldUpdateView: Bool = false // Added state to trigger view update
     @State private var pageType: PageOptions = .search
     @State private var logout: Bool = false
     @State var bookName: String? = nil
@@ -21,6 +22,8 @@ struct AdminContentView: View {
                 }
                 else if pageType == .list{
                     BooksListAdmin(bookName: $bookName, writer: $writer, library: $library)
+                        .id(shouldUpdateView ? "list_updated" : nil) // Use 'id' to force view update
+
                 }
                 else{
                     UserProfileView(logout: $logout)
@@ -32,6 +35,8 @@ struct AdminContentView: View {
                         bookName = nil
                         writer = nil
                         library = nil
+                        shouldUpdateView.toggle()
+
                     }, label: {
                         Image(systemName: "list.bullet.circle")
                             .imageScale(.large)
